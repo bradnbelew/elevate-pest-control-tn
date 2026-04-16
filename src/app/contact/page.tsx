@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { COMPANY } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -11,10 +12,19 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#0f172a] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block bg-[#16a34a]/20 border border-[#16a34a]/40 text-[#4ade80] text-sm font-bold px-4 py-1.5 rounded-full mb-4">
+      {/* Hero with background photo */}
+      <section className="relative bg-[#0f172a] py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/tech-spraying.jpg"
+            alt="Elevate Pest Control technician"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/90 to-[#0f172a]/70" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block bg-[#16a34a]/20 border border-[#16a34a]/40 text-[#4ade80] text-sm font-bold px-4 py-1.5 rounded-full mb-5">
             Free Inspection Available
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
@@ -34,7 +44,8 @@ export default function ContactPage() {
             <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
               <div className="mb-6">
                 <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1.5 rounded-full mb-3">
-                  🎉 30% Off First Service
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clipRule="evenodd" /><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" /></svg>
+                  30% Off First Service
                 </div>
                 <h2 className="text-2xl font-black text-[#0f172a]">Request Your Free Quote</h2>
                 <p className="text-slate-500 text-sm mt-1">No obligation. No hidden fees. Just honest pest control.</p>
@@ -137,7 +148,7 @@ export default function ContactPage() {
                   type="submit"
                   className="w-full bg-[#16a34a] hover:bg-[#166534] text-white font-black text-base py-4 rounded-xl transition-all btn-pulse shadow-lg shadow-green-200"
                 >
-                  🎉 Get My Free Quote (30% Off)
+                  Get My Free Quote — 30% Off
                 </button>
                 <p className="text-center text-xs text-slate-400">
                   By submitting, you agree to be contacted by Elevate Pest Control. We never share your information.
@@ -164,11 +175,16 @@ export default function ContactPage() {
                 </a>
                 <div className="mt-6 pt-6 border-t border-white/10 space-y-3 text-sm">
                   <div className="flex gap-3">
-                    <span>📍</span>
+                    <svg className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                     <span className="text-slate-300">715 Poplar Ave, Suite 101, Nashville, TN 37210</span>
                   </div>
                   <div className="flex gap-3">
-                    <span>🕐</span>
+                    <svg className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     <div className="text-slate-300">
                       <p>Mon–Fri: 8:00 AM – 6:00 PM</p>
                       <p>Saturday: 8:00 AM – 4:00 PM</p>
@@ -199,7 +215,11 @@ export default function ContactPage() {
               {/* Guarantee box */}
               <div className="bg-[#f0fdf4] border border-[#86efac] rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">🛡️</span>
+                  <div className="w-10 h-10 bg-[#16a34a] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-black text-[#0f172a]">100% Satisfaction Guarantee</p>
                     <p className="text-[#166534] text-sm font-semibold">No risk. No fine print.</p>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { COMPANY, OTHER_LOCATIONS } from "@/lib/constants";
 
 export default function Footer() {
@@ -11,34 +12,39 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-[#16a34a] flex items-center justify-center text-white font-black text-lg">
-                E
-              </div>
-              <div className="leading-tight">
-                <div className="font-black text-white text-base leading-none">Elevate</div>
-                <div className="text-[10px] text-[#4ade80] font-semibold uppercase tracking-widest leading-none">
-                  Pest Control
-                </div>
-              </div>
-            </div>
-            <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-              Nashville's trusted pest control experts since 2008. Family-owned, eco-friendly, and 100% guaranteed.
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/elevate-logo-white.png"
+                alt="Elevate Pest Control"
+                width={140}
+                height={40}
+                className="h-9 w-auto object-contain"
+              />
+            </Link>
+            <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+              Nashville&apos;s trusted pest control experts since 2008. Family-owned, eco-friendly, and 100% guaranteed.
             </p>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-start gap-2">
-                <span>📍</span>
-                <span>{COMPANY.address.full}</span>
+            <div className="space-y-2.5 text-sm">
+              <div className="flex items-start gap-2.5">
+                <svg className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span className="text-slate-400">{COMPANY.address.full}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span>📞</span>
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-slate-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
                 <a href={COMPANY.phoneHref} className="text-[#4ade80] font-bold hover:text-green-300 transition-colors">
                   {COMPANY.phone}
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <span>⭐</span>
-                <span>{COMPANY.rating} Stars · {COMPANY.reviewCount} Reviews</span>
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-slate-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span className="text-slate-400">{COMPANY.rating} Stars · {COMPANY.reviewCount} Reviews</span>
               </div>
             </div>
           </div>
@@ -95,7 +101,7 @@ export default function Footer() {
               <li className="text-slate-500">{COMPANY.hours.sunday}</li>
             </ul>
             <div className="bg-[#16a34a]/20 border border-[#16a34a]/40 rounded-xl p-4">
-              <p className="text-[#4ade80] font-bold text-sm">🎉 Current Offer</p>
+              <p className="text-[#4ade80] font-bold text-sm">Limited Time Offer</p>
               <p className="text-white font-black text-lg leading-tight mt-1">30% Off</p>
               <p className="text-slate-300 text-xs mt-1">Initial service with a treatment plan</p>
               <a
